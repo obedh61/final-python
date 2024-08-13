@@ -26,6 +26,7 @@ api.add_namespace(stores_ns)
 def create_tables():
     db.create_all()
 
+h = "hello"
 
 @api.errorhandler(ValidationError)
 def handle_validation_error(error):
