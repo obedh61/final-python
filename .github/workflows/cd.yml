@@ -1,0 +1,19 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["Publish Docker image"]
+    types:
+      - completed
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - name: Stop Old docker container
+      run: sudo docker stop final-python || true
+    - name: Run Docker Container
+      run: sudo docker run -d --rm -p 5000:5000 --name final-python obedh61/final-python:latest
