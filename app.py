@@ -21,6 +21,7 @@ api.add_namespace(items_ns)
 api.add_namespace(store_ns)
 api.add_namespace(stores_ns)
 
+h="hello"
 
 @app.before_first_request
 def create_tables():
